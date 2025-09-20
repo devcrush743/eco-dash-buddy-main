@@ -52,11 +52,13 @@ const API_BASE_URL = import.meta.env.VITE_ROUTE_OPTIMIZATION_URL || 'http://loca
    ```
 4. **Create `requirements.txt`:**
    ```
-   Flask==2.3.3
-   Flask-CORS==4.0.0
-   scikit-learn==1.3.0
-   numpy==1.24.3
-   requests==2.31.0
+   Flask>=2.3.0,<3.0.0
+   Flask-CORS>=4.0.0
+   scikit-learn>=1.3.0
+   numpy>=1.24.0
+   requests>=2.31.0
+   gunicorn>=21.0.0
+   Werkzeug>=2.3.7
    ```
 5. **Create `Procfile`:**
    ```

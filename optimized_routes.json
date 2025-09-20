@@ -1,0 +1,172 @@
+{
+  "optimization_summary": {
+    "total_drivers": 3,
+    "total_pickup_points": 6,
+    "total_distance_km": 5.31,
+    "total_time_minutes": 13.0,
+    "points_covered": 6,
+    "priority_coverage": {
+      "red": 3,
+      "yellow": 2,
+      "green": 1
+    },
+    "quality_metrics": {
+      "overall_score": 0.611,
+      "priority_coverage_score": 0.778,
+      "distance_efficiency_score": 0.573,
+      "workload_balance_score": 0.356
+    }
+  },
+  "driver_routes": {
+    "DRV001": {
+      "driver_id": "DRV001",
+      "driver_name": "Rajesh Kumar",
+      "base_location": {
+        "lat": 28.665,
+        "lng": 77.44
+      },
+      "route_summary": {
+        "total_stops": 1,
+        "total_distance_km": 0.28,
+        "estimated_time_minutes": 1.0,
+        "total_volume_m3": 1.5,
+        "capacity_utilization_percent": 6.0
+      },
+      "priority_breakdown": {
+        "red_stops": 0,
+        "yellow_stops": 0,
+        "green_stops": 1
+      },
+      "stops": [
+        {
+          "stop_number": 1,
+          "pickup_id": "report_006",
+          "location": {
+            "lat": 28.6634,
+            "lng": 77.4387
+          },
+          "priority": "green",
+          "volume_m3": 1.5,
+          "description": "Metro station area - routine maintenance",
+          "distance_from_previous_km": 0.28,
+          "estimated_travel_time_minutes": 1.0,
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&destination=28.6634,77.4387"
+        }
+      ]
+    },
+    "DRV002": {
+      "driver_id": "DRV002",
+      "driver_name": "Amit Singh",
+      "base_location": {
+        "lat": 28.67,
+        "lng": 77.45
+      },
+      "route_summary": {
+        "total_stops": 3,
+        "total_distance_km": 2.88,
+        "estimated_time_minutes": 7.0,
+        "total_volume_m3": 8.0,
+        "capacity_utilization_percent": 26.7
+      },
+      "priority_breakdown": {
+        "red_stops": 1,
+        "yellow_stops": 2,
+        "green_stops": 0
+      },
+      "stops": [
+        {
+          "stop_number": 1,
+          "pickup_id": "report_001",
+          "location": {
+            "lat": 28.6692,
+            "lng": 77.4538
+          },
+          "priority": "red",
+          "volume_m3": 3.0,
+          "description": "Bus stand - overflowing bins, urgent cleanup needed",
+          "distance_from_previous_km": 0.5,
+          "estimated_travel_time_minutes": 1.0,
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&destination=28.6692,77.4538"
+        },
+        {
+          "stop_number": 2,
+          "pickup_id": "report_005",
+          "location": {
+            "lat": 28.6701,
+            "lng": 77.4501
+          },
+          "priority": "yellow",
+          "volume_m3": 3.0,
+          "description": "Commercial complex - moderate accumulation",
+          "distance_from_previous_km": 0.49,
+          "estimated_travel_time_minutes": 1.0,
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&destination=28.6701,77.4501"
+        },
+        {
+          "stop_number": 3,
+          "pickup_id": "report_004",
+          "location": {
+            "lat": 28.6789,
+            "lng": 77.4612
+          },
+          "priority": "yellow",
+          "volume_m3": 2.0,
+          "description": "Residential sector - regular collection needed",
+          "distance_from_previous_km": 1.9,
+          "estimated_travel_time_minutes": 5.0,
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&destination=28.6789,77.4612"
+        }
+      ]
+    },
+    "DRV003": {
+      "driver_id": "DRV003",
+      "driver_name": "Pradeep Sharma",
+      "base_location": {
+        "lat": 28.66,
+        "lng": 77.435
+      },
+      "route_summary": {
+        "total_stops": 2,
+        "total_distance_km": 2.15,
+        "estimated_time_minutes": 5.0,
+        "total_volume_m3": 6.0,
+        "capacity_utilization_percent": 30.0
+      },
+      "priority_breakdown": {
+        "red_stops": 2,
+        "yellow_stops": 0,
+        "green_stops": 0
+      },
+      "stops": [
+        {
+          "stop_number": 1,
+          "pickup_id": "report_002",
+          "location": {
+            "lat": 28.6641,
+            "lng": 77.4324
+          },
+          "priority": "red",
+          "volume_m3": 3.0,
+          "description": "Market area - illegal dumping reported",
+          "distance_from_previous_km": 0.68,
+          "estimated_travel_time_minutes": 2.0,
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&destination=28.6641,77.4324"
+        },
+        {
+          "stop_number": 2,
+          "pickup_id": "report_003",
+          "location": {
+            "lat": 28.6583,
+            "lng": 77.4419
+          },
+          "priority": "red",
+          "volume_m3": 3.0,
+          "description": "School area - health hazard, immediate attention required",
+          "distance_from_previous_km": 1.47,
+          "estimated_travel_time_minutes": 4.0,
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&destination=28.6583,77.4419"
+        }
+      ]
+    }
+  }
+}

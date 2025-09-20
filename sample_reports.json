@@ -1,0 +1,68 @@
+[
+  {
+    "id": "report_001",
+    "coords": {
+      "lat": 28.6692,
+      "lng": 77.4538
+    },
+    "priority": "red",
+    "status": "open",
+    "description": "Bus stand - overflowing bins, urgent cleanup needed",
+    "reportedAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": "report_002",
+    "coords": {
+      "lat": 28.6641,
+      "lng": 77.4324
+    },
+    "priority": "red",
+    "status": "open",
+    "description": "Market area - illegal dumping reported",
+    "reportedAt": "2024-01-15T09:15:00Z"
+  },
+  {
+    "id": "report_003",
+    "coords": {
+      "lat": 28.6583,
+      "lng": 77.4419
+    },
+    "priority": "red",
+    "status": "open",
+    "description": "School area - health hazard, immediate attention required",
+    "reportedAt": "2024-01-15T08:45:00Z"
+  },
+  {
+    "id": "report_004",
+    "coords": {
+      "lat": 28.6789,
+      "lng": 77.4612
+    },
+    "priority": "yellow",
+    "status": "open",
+    "description": "Residential sector - regular collection needed",
+    "reportedAt": "2024-01-15T11:00:00Z"
+  },
+  {
+    "id": "report_005",
+    "coords": {
+      "lat": 28.6701,
+      "lng": 77.4501
+    },
+    "priority": "yellow",
+    "status": "open",
+    "description": "Commercial complex - moderate accumulation",
+    "reportedAt": "2024-01-15T10:45:00Z"
+  },
+  {
+    "id": "report_006",
+    "coords": {
+      "lat": 28.6634,
+      "lng": 77.4387
+    },
+    "priority": "green",
+    "status": "open",
+    "description": "Metro station area - routine maintenance",
+    "reportedAt": "2024-01-15T12:00:00Z"
+  }
+]

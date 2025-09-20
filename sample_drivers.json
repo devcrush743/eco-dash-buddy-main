@@ -1,0 +1,35 @@
+[
+  {
+    "driverId": "DRV001",
+    "name": "Rajesh Kumar",
+    "baseLocation": {
+      "lat": 28.665,
+      "lng": 77.44
+    },
+    "maxCapacity": 25.0,
+    "active": true,
+    "vehicleType": "Small Truck"
+  },
+  {
+    "driverId": "DRV002",
+    "name": "Amit Singh",
+    "baseLocation": {
+      "lat": 28.67,
+      "lng": 77.45
+    },
+    "maxCapacity": 30.0,
+    "active": true,
+    "vehicleType": "Medium Truck"
+  },
+  {
+    "driverId": "DRV003",
+    "name": "Pradeep Sharma",
+    "baseLocation": {
+      "lat": 28.66,
+      "lng": 77.435
+    },
+    "maxCapacity": 20.0,
+    "active": true,
+    "vehicleType": "Compact Vehicle"
+  }
+]

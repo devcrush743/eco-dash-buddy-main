@@ -184,12 +184,15 @@ const estimateVolumeFromDescription = (description) => {
 /**
  * Call Python optimization for driver-specific clustering
  * Updated: Using Railway backend URL for production
+ * FORCE REBUILD: This should fix the localhost issue
  */
 const callDriverSpecificOptimization = async (pickupData, driverData, targetDriverId) => {
   try {
+    // Railway backend URL - hardcoded for production
     const API_BASE_URL = 'https://swachsaarthi-production.up.railway.app';
     
     console.log('🚛 Calling driver-specific optimization API...');
+    console.log('🔗 Using Railway backend:', API_BASE_URL);
     
     const requestBody = {
       pickup_points: pickupData,

@@ -222,14 +222,17 @@ def optimize_driver_routes():
 
 
 if __name__ == '__main__':
+    # Get port from environment variable (Railway/Heroku) or default to 5000
+    port = int(os.environ.get('PORT', 5000))
+    
     print("🚛 Starting Route Optimization API Server...")
     print("📡 Available endpoints:")
     print("   GET  /            - API info")
     print("   GET  /health      - Health check") 
     print("   POST /optimize    - Optimize routes with real data")
     print("   POST /optimize-driver - Get driver-specific locations")
-    print("\n🌐 Server will start at http://localhost:5000")
-    print("🔗 To test: curl http://localhost:5000/health")
+    print(f"\n🌐 Server will start at http://0.0.0.0:{port}")
+    print(f"🔗 To test: curl http://localhost:{port}/health")
     print()
     
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=False, host='0.0.0.0', port=port)

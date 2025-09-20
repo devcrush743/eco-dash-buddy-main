@@ -1,0 +1,18 @@
+# Ignore frontend files for Python backend deployment
+src/
+dist/
+node_modules/
+package.json
+package-lock.json
+bun.lockb
+vite.config.ts
+tailwind.config.ts
+postcss.config.js
+tsconfig*.json
+eslint.config.js
+components.json
+index.html
+netlify.toml
+public/
+*.md
+.env*

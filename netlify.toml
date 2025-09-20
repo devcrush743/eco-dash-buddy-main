@@ -4,14 +4,6 @@
 
 [build.environment]
   NODE_VERSION = "18"
-  
-# Ignore Python files during build
-[build.ignore]
-  requirements.txt
-  runtime.txt
-  route_optimization_server.py
-  route_optimization/
-  *.py
 
 [[redirects]]
   from = "/*"

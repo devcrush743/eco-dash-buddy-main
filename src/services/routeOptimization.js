@@ -143,7 +143,7 @@ export const convertDriversToDriverData = (drivers) => {
  */
 export const callPythonOptimization = async (pickupData, driverData) => {
   try {
-    const API_BASE_URL = import.meta.env.VITE_ROUTE_OPTIMIZATION_URL || 'http://localhost:5000';
+    const API_BASE_URL = 'https://swachsaarthi-production.up.railway.app';
     
     console.log('🚛 Calling route optimization API with data:', {
       pickup_points: pickupData.length,

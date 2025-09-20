@@ -186,7 +186,7 @@ const estimateVolumeFromDescription = (description) => {
  */
 const callDriverSpecificOptimization = async (pickupData, driverData, targetDriverId) => {
   try {
-    const API_BASE_URL = import.meta.env.VITE_ROUTE_OPTIMIZATION_URL || 'http://localhost:5000';
+    const API_BASE_URL = 'https://swachsaarthi-production.up.railway.app';
     
     console.log('🚛 Calling driver-specific optimization API...');
     

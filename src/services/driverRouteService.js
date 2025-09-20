@@ -193,6 +193,7 @@ const callDriverSpecificOptimization = async (pickupData, driverData, targetDriv
     
     console.log('🚛 Calling driver-specific optimization API...');
     console.log('🔗 Using Railway backend:', API_BASE_URL);
+    console.log('🔄 FORCE REBUILD - This should fix localhost issue');
     
     const requestBody = {
       pickup_points: pickupData,

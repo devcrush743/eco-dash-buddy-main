@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Navbar } from "@/components/layout/Navbar";
+import LanguageToggle from "@/components/ui/LanguageToggle";
 import heroImage from "@/assets/hero-waste-management.jpg";
 import citizenImage from "@/assets/citizen-illustration.jpg";
 import driverImage from "@/assets/driver-illustration.jpg";
@@ -12,6 +14,7 @@ import driverImage from "@/assets/driver-illustration.jpg";
 const LandingPage = () => {
   const navigate = useNavigate();
   const { currentUser, userProfile } = useAuth();
+  const { t } = useLanguage();
 
   const handleCitizenClick = () => {
     navigate('/citizen');
@@ -34,29 +37,34 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 -mt-8 pb-8 sm:py-12">
         <div className="flex flex-col items-center justify-center text-center space-y-8 sm:space-y-12 w-full max-w-6xl">
+          {/* Language Toggle */}
+          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50">
+            <LanguageToggle />
+          </div>
+          
           <div className="space-y-8 sm:space-y-12 animate-fade-in-up w-full">
             <div className="space-y-6 sm:space-y-8">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-display font-bold text-foreground leading-[0.9] tracking-tight">
-                Smart Waste Management for a 
-                <span className="text-transparent bg-clip-text bg-gradient-hero animate-shimmer"> Cleaner Tomorrow</span>
+                {t('hero.title')} 
+                <span className="text-transparent bg-clip-text bg-gradient-hero animate-shimmer"> {t('hero.title.highlight')}</span>
               </h1>
               <p className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-muted-foreground leading-tight tracking-tight font-display font-medium max-w-5xl mx-auto">
-              Smarter waste management. Cleaner neighborhoods.
+                {t('hero.subtitle')}
               </p>
             </div>
 
             <div className="hidden sm:flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10">
               <div className="flex items-center gap-3 sm:gap-4 animate-slide-in" style={{ animationDelay: '0.2s' }}>
                 <div className="h-3 w-3 sm:h-4 sm:w-4 bg-gradient-hero rounded-full animate-pulse-glow" />
-                <span className="text-base sm:text-lg md:text-xl font-display font-medium tracking-tight">Real-time tracking</span>
+                <span className="text-base sm:text-lg md:text-xl font-display font-medium tracking-tight">{t('hero.feature1')}</span>
               </div>
               <div className="flex items-center gap-3 sm:gap-4 animate-slide-in" style={{ animationDelay: '0.3s' }}>
                 <div className="h-3 w-3 sm:h-4 sm:w-4 bg-gradient-hero rounded-full animate-pulse-glow" />
-                <span className="text-base sm:text-lg md:text-xl font-display font-medium tracking-tight">Gamified rewards</span>
+                <span className="text-base sm:text-lg md:text-xl font-display font-medium tracking-tight">{t('hero.feature2')}</span>
               </div>
               <div className="flex items-center gap-3 sm:gap-4 animate-slide-in" style={{ animationDelay: '0.4s' }}>
                 <div className="h-3 w-3 sm:h-4 sm:w-4 bg-gradient-hero rounded-full animate-pulse-glow" />
-                <span className="text-base sm:text-lg md:text-xl font-display font-medium tracking-tight">Community driven</span>
+                <span className="text-base sm:text-lg md:text-xl font-display font-medium tracking-tight">{t('hero.feature3')}</span>
               </div>
             </div>
           </div>
@@ -66,9 +74,9 @@ const LandingPage = () => {
       {/* Role Selection */}
       <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6 text-foreground tracking-tight leading-tight">Choose Your Role</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6 text-foreground tracking-tight leading-tight">{t('role.title')}</h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground font-display font-medium max-w-3xl mx-auto leading-tight tracking-tight px-4">
-            Select how you'd like to participate in our smart waste management system
+            {t('role.subtitle')}
           </p>
         </div>
 
@@ -89,24 +97,23 @@ const LandingPage = () => {
               </div>
 
               <div className="space-y-4 sm:space-y-6">
-                <h3 className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight leading-tight">Citizen Portal</h3>
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight leading-tight">{t('citizen.title')}</h3>
                 <p className="text-muted-foreground text-base sm:text-lg leading-tight tracking-tight font-display">
-                  Report waste issues, track collection status, and earn rewards 
-                  for contributing to a cleaner community.
+                  {t('citizen.description')}
                 </p>
                 
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-center gap-3 sm:gap-4">
                     <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">Report issues with geo-tagging</span>
+                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">{t('citizen.feature1')}</span>
                   </div>
                   <div className="flex items-center gap-3 sm:gap-4">
                     <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">Earn points and rewards</span>
+                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">{t('citizen.feature2')}</span>
                   </div>
                   <div className="flex items-center gap-3 sm:gap-4">
                     <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">Track collection status</span>
+                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">{t('citizen.feature3')}</span>
                   </div>
                 </div>
 
@@ -114,7 +121,7 @@ const LandingPage = () => {
                   onClick={handleCitizenClick}
                   className="w-full h-12 sm:h-14 bg-gradient-hero text-base sm:text-lg font-display font-semibold rounded-xl sm:rounded-2xl shadow-premium group-hover:shadow-glow transform group-hover:scale-105 transition-all duration-300"
                 >
-                  {currentUser && userProfile?.userType === 'citizen' ? 'Enter Dashboard' : 'Learn More'}
+                  {currentUser && userProfile?.userType === 'citizen' ? t('citizen.button.dashboard') : t('citizen.button')}
                   <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 sm:ml-3" />
                 </Button>
               </div>
@@ -137,24 +144,23 @@ const LandingPage = () => {
               </div>
 
               <div className="space-y-4 sm:space-y-6">
-                <h3 className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight leading-tight">Driver Portal</h3>
+                <h3 className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight leading-tight">{t('driver.title')}</h3>
                 <p className="text-muted-foreground text-base sm:text-lg leading-tight tracking-tight font-display">
-                  Manage collection routes, respond to priority alerts, 
-                  and earn points for efficient waste collection.
+                  {t('driver.description')}
                 </p>
                 
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-center gap-3 sm:gap-4">
                     <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">Optimized route planning</span>
+                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">{t('driver.feature1')}</span>
                   </div>
                   <div className="flex items-center gap-3 sm:gap-4">
                     <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">Performance tracking</span>
+                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">{t('driver.feature2')}</span>
                   </div>
                   <div className="flex items-center gap-3 sm:gap-4">
                     <Truck className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0" />
-                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">Real-time task management</span>
+                    <span className="text-sm sm:text-base font-display font-medium tracking-tight">{t('driver.feature3')}</span>
                   </div>
                 </div>
 
@@ -162,7 +168,7 @@ const LandingPage = () => {
                   onClick={handleDriverClick}
                   className="w-full h-12 sm:h-14 bg-gradient-hero text-base sm:text-lg font-display font-semibold rounded-xl sm:rounded-2xl shadow-premium group-hover:shadow-glow transform group-hover:scale-105 transition-all duration-300"
                 >
-                  {currentUser && userProfile?.userType === 'driver' ? 'Enter Dashboard' : 'Learn More'}
+                  {currentUser && userProfile?.userType === 'driver' ? t('driver.button.dashboard') : t('driver.button')}
                   <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 sm:ml-3" />
                 </Button>
               </div>
@@ -177,19 +183,19 @@ const LandingPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
             <div>
               <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-1 sm:mb-2">1,250+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground font-display tracking-tight">Active Citizens</div>
+              <div className="text-xs sm:text-sm text-muted-foreground font-display tracking-tight">{t('stats.citizens')}</div>
             </div>
             <div>
               <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-1 sm:mb-2">85+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground font-display tracking-tight">Drivers</div>
+              <div className="text-xs sm:text-sm text-muted-foreground font-display tracking-tight">{t('stats.drivers')}</div>
             </div>
             <div>
               <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-1 sm:mb-2">15,400+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground font-display tracking-tight">Issues Resolved</div>
+              <div className="text-xs sm:text-sm text-muted-foreground font-display tracking-tight">{t('stats.resolved')}</div>
             </div>
             <div>
               <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-1 sm:mb-2">98%</div>
-              <div className="text-xs sm:text-sm text-muted-foreground font-display tracking-tight">Collection Rate</div>
+              <div className="text-xs sm:text-sm text-muted-foreground font-display tracking-tight">{t('stats.collection')}</div>
             </div>
           </div>
         </div>
@@ -200,10 +206,10 @@ const LandingPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold mb-2 sm:mb-4 text-foreground tracking-tight leading-tight">
-              Portal Access
+              {t('portal.title')}
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-display font-medium max-w-2xl mx-auto leading-tight tracking-tight">
-              Quick access for administrators and drivers
+              {t('portal.subtitle')}
             </p>
           </div>
 
@@ -215,18 +221,18 @@ const LandingPage = () => {
                   <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-display font-bold text-slate-900 tracking-tight">Admin Portal</h3>
-                  <p className="text-xs sm:text-sm text-red-600 font-medium">Restricted Access</p>
+                  <h3 className="text-lg sm:text-xl font-display font-bold text-slate-900 tracking-tight">{t('admin.title')}</h3>
+                  <p className="text-xs sm:text-sm text-red-600 font-medium">{t('admin.restricted')}</p>
                 </div>
               </div>
               <p className="text-sm sm:text-base text-slate-700 mb-4 font-display">
-                Manage drivers, monitor system performance, and access administrative controls.
+                {t('admin.description')}
               </p>
               <Button 
                 onClick={handleAdminClick}
                 className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold"
               >
-                Admin Login
+                {t('admin.button')}
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             </Card>
@@ -238,15 +244,15 @@ const LandingPage = () => {
                   <Users className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-display font-bold text-slate-900 tracking-tight">Quick Access</h3>
-                  <p className="text-xs sm:text-sm text-blue-600 font-medium">Sign In Options</p>
+                  <h3 className="text-lg sm:text-xl font-display font-bold text-slate-900 tracking-tight">{t('quick.title')}</h3>
+                  <p className="text-xs sm:text-sm text-blue-600 font-medium">{t('quick.subtitle')}</p>
                 </div>
               </div>
               <p className="text-sm sm:text-base text-slate-700 mb-4 font-display">
-                Drivers can sign in using the "Sign In" button in the top navigation bar with their admin-provided credentials.
+                {t('quick.description')}
               </p>
               <div className="bg-blue-100 rounded-lg p-3 text-sm text-blue-800">
-                <strong>For Drivers:</strong> Use the navbar "Sign In" → "Continue as Driver" with your Driver ID (e.g., DRV001) and password.
+                <strong>{t('quick.driver.info')}</strong> {t('quick.driver.instruction')}
               </div>
             </Card>
           </div>
@@ -267,7 +273,7 @@ const LandingPage = () => {
       <footer className="bg-gradient-eco text-primary-foreground py-4 sm:py-6">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm sm:text-base text-primary-foreground/80 px-4 font-display tracking-tight leading-tight">
-            Building cleaner communities through smart waste management
+            {t('footer.tagline')}
           </p>
         </div>
       </footer>

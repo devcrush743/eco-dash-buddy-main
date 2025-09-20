@@ -1,0 +1,28 @@
+# Netlify build ignore file
+# Exclude Python backend files from frontend build
+
+# Python backend files
+requirements.txt
+runtime.txt
+route_optimization_server.py
+route_optimization/
+*.py
+*.pyc
+__pycache__/
+
+# Railway files
+railway.toml
+
+# Python virtual environment
+venv/
+env/
+.env
+
+# Other backend files
+Procfile
+start_route_optimization.sh
+test_route_optimization.py
+route_optimization_server.py
+
+# Documentation files
+*.md

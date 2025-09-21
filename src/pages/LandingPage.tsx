@@ -17,11 +17,11 @@ const LandingPage = () => {
   const { t } = useLanguage();
 
   const handleCitizenClick = () => {
-    navigate('/citizen');
+    navigate('/citizen-info');
   };
 
   const handleDriverClick = () => {
-    navigate('/driver');
+    navigate('/driver-info');
   };
 
   const handleAdminClick = () => {
@@ -35,13 +35,18 @@ const LandingPage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 -mt-8 pb-8 sm:py-12">
-        <div className="flex flex-col items-center justify-center text-center space-y-8 sm:space-y-12 w-full max-w-6xl">
-          {/* Language Toggle */}
-          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50">
-            <LanguageToggle />
-          </div>
-          
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 -mt-8 pb-8 sm:py-12 relative">
+        {/* Mobile Background Image */}
+        <div className="absolute inset-0 sm:hidden z-0">
+          <img 
+            src="/mobile-bg.png" 
+            alt="Mobile Background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10"></div>
+        </div>
+        
+        <div className="flex flex-col items-center justify-center text-center space-y-8 sm:space-y-12 w-full max-w-6xl relative z-10">
           <div className="space-y-8 sm:space-y-12 animate-fade-in-up w-full">
             <div className="space-y-6 sm:space-y-8">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-display font-bold text-foreground leading-[0.9] tracking-tight">
@@ -121,7 +126,7 @@ const LandingPage = () => {
                   onClick={handleCitizenClick}
                   className="w-full h-12 sm:h-14 bg-gradient-hero text-base sm:text-lg font-display font-semibold rounded-xl sm:rounded-2xl shadow-premium group-hover:shadow-glow transform group-hover:scale-105 transition-all duration-300"
                 >
-                  {currentUser && userProfile?.userType === 'citizen' ? t('citizen.button.dashboard') : t('citizen.button')}
+                  {t('citizen.button')}
                   <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 sm:ml-3" />
                 </Button>
               </div>
@@ -168,7 +173,7 @@ const LandingPage = () => {
                   onClick={handleDriverClick}
                   className="w-full h-12 sm:h-14 bg-gradient-hero text-base sm:text-lg font-display font-semibold rounded-xl sm:rounded-2xl shadow-premium group-hover:shadow-glow transform group-hover:scale-105 transition-all duration-300"
                 >
-                  {currentUser && userProfile?.userType === 'driver' ? t('driver.button.dashboard') : t('driver.button')}
+                  {t('driver.button')}
                   <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 sm:ml-3" />
                 </Button>
               </div>

@@ -18,7 +18,8 @@ import { RecyclingCenters } from './RecyclingCenters';
 import { ScrapBookingSystem } from './ScrapBookingSystem';
 import { WTEMonitoring } from './WTEMonitoring';
 import { CapacityMonitoring } from './CapacityMonitoring';
-import { LanguageProvider, useLanguage } from '../../contexts/ecolearn/LanguageContext';
+import { useLanguage } from '../../contexts/LanguageContext';
+import LanguageToggle from '../../components/ui/LanguageToggle';
 import { ProgressProvider } from '../../contexts/ecolearn/ProgressContext';
 import { WasteCollectionProvider } from '../../contexts/ecolearn/WasteCollectionContext';
 import { GreenChampionsProvider } from '../../contexts/ecolearn/GreenChampionsContext';
@@ -159,15 +160,24 @@ function EcoLearnContent() {
         </Button>
       </div>
 
-      {/* User Role Display - styled to match existing project */}
-      <div className="fixed top-4 right-4 z-50 bg-white/95 backdrop-blur-sm rounded-xl shadow-premium p-4 border border-primary/20">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-gradient-hero text-primary-foreground">
-            <Home className="h-4 w-4" />
-          </div>
-          <div>
-            <p className="text-sm font-medium text-foreground">EcoLearn Role</p>
-            <p className="text-xs text-muted-foreground capitalize">{userRole.replace('_', ' ')}</p>
+      {/* User Role Display + Language Toggle - styled to match existing project */}
+      <div className="fixed top-4 right-2 sm:right-4 z-50 flex items-center gap-2 sm:gap-3">
+        {/* Language Toggle */}
+        <LanguageToggle />
+        
+        {/* User Role Display */}
+        <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-premium p-2 sm:p-4 border border-primary/20">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-hero text-primary-foreground">
+              <Home className="h-3 w-3 sm:h-4 sm:w-4" />
+            </div>
+            <div className="hidden sm:block">
+              <p className="text-sm font-medium text-foreground">EcoLearn Role</p>
+              <p className="text-xs text-muted-foreground capitalize">{userRole.replace('_', ' ')}</p>
+            </div>
+            <div className="block sm:hidden">
+              <p className="text-xs font-medium text-foreground capitalize">{userRole.replace('_', ' ')}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -178,21 +188,19 @@ function EcoLearnContent() {
 
 export function EcoLearnApp() {
   return (
-    <LanguageProvider>
-      <ProgressProvider>
-        <WasteCollectionProvider>
-          <GreenChampionsProvider>
-            <AnalyticsProvider>
-              <FacilityProvider>
-                <UserProvider>
-                  <EcoLearnContent />
-                </UserProvider>
-              </FacilityProvider>
-            </AnalyticsProvider>
-          </GreenChampionsProvider>
-        </WasteCollectionProvider>
-      </ProgressProvider>
-    </LanguageProvider>
+    <ProgressProvider>
+      <WasteCollectionProvider>
+        <GreenChampionsProvider>
+          <AnalyticsProvider>
+            <FacilityProvider>
+              <UserProvider>
+                <EcoLearnContent />
+              </UserProvider>
+            </FacilityProvider>
+          </AnalyticsProvider>
+        </GreenChampionsProvider>
+      </WasteCollectionProvider>
+    </ProgressProvider>
   );
 }
 

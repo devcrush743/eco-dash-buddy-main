@@ -3,7 +3,7 @@ import { collection, query } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import { useFirestoreSubscribe } from '../../hooks/ecolearn/useFirestoreSubscribe';
 import { BookOpen, Award, BarChart3, Recycle, Trash2, Users, TrendingUp } from 'lucide-react';
-import { useLanguage } from '../../contexts/ecolearn/LanguageContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { useProgress } from '../../contexts/ecolearn/ProgressContext';
 
 interface DashboardProps {

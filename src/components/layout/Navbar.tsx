@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { NavbarSignIn } from "@/components/auth/NavbarSignIn";
 import { useNavigate } from "react-router-dom";
 import GoToNewDashboardButton from "@/components/GoToNewDashboardButton";
+import LanguageToggle from "@/components/ui/LanguageToggle";
 import { 
   User, 
   LogOut, 
@@ -20,8 +21,11 @@ import {
   Settings, 
   ChevronDown,
   Truck,
-  Users
+  Users,
+  Menu,
+  X
 } from "lucide-react";
+import { useState } from "react";
 
 interface NavbarProps {
   showBackToHome?: boolean;
@@ -30,6 +34,7 @@ interface NavbarProps {
 export const Navbar = ({ showBackToHome = false }: NavbarProps) => {
   const { currentUser, userProfile, logout } = useAuth();
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -91,8 +96,11 @@ export const Navbar = ({ showBackToHome = false }: NavbarProps) => {
           )}
         </div>
 
-        {/* Go-to-dashboard + User Profile or Login */}
-        <div className="flex items-center gap-4">
+        {/* Desktop Navigation */}
+        <div className="hidden sm:flex items-center gap-2 sm:gap-3">
+          {/* Language Toggle */}
+          <LanguageToggle />
+          
           {currentUser && userProfile && (userProfile.userType === 'driver' || userProfile.userType === 'citizen') && (
             <GoToNewDashboardButton role={userProfile.userType === 'driver' ? 'driver' : 'citizen'} />
           )}
@@ -221,7 +229,172 @@ export const Navbar = ({ showBackToHome = false }: NavbarProps) => {
             <NavbarSignIn />
           )}
         </div>
+
+        {/* Mobile Hamburger Menu */}
+        <div className="sm:hidden">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </Button>
+        </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="sm:hidden fixed inset-0 z-[9999] bg-black/50" onClick={() => setIsMobileMenuOpen(false)}>
+          <div 
+            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl border-l border-border/50"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-6 space-y-6 bg-white">
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-semibold">Menu</h2>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2"
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              {/* Language Toggle */}
+              <div className="space-y-2 bg-white p-3 rounded-lg border border-gray-200">
+                <h3 className="text-sm font-medium text-gray-700">Language</h3>
+                <LanguageToggle />
+              </div>
+
+              {/* User Profile or Sign In */}
+              {currentUser && userProfile ? (
+                <div className="space-y-4 bg-white p-3 rounded-lg border border-gray-200">
+                  {/* User Info */}
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                    <Avatar className="h-10 w-10">
+                      <AvatarImage src={userProfile.photoURL} />
+                      <AvatarFallback className={`${getUserTypeColor()} text-white text-sm font-semibold`}>
+                        {getUserInitials(userProfile.displayName)}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-semibold">{userProfile.displayName}</span>
+                        {getUserTypeIcon()}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="secondary" className="text-xs">
+                          {userProfile.userType}
+                        </Badge>
+                        {userProfile.points !== undefined && (
+                          <span className="text-xs text-muted-foreground">
+                            {userProfile.points} pts
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Navigation Items */}
+                  <div className="space-y-2">
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start"
+                      onClick={() => {
+                        navigate('/');
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      <Home className="mr-3 h-4 w-4" />
+                      Home
+                    </Button>
+
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start"
+                      onClick={() => {
+                        navigate(userProfile.userType === 'citizen' ? '/citizen' : '/driver');
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {userProfile.userType === 'citizen' ? (
+                        <Users className="mr-3 h-4 w-4" />
+                      ) : (
+                        <Truck className="mr-3 h-4 w-4" />
+                      )}
+                      Dashboard
+                    </Button>
+
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start"
+                      onClick={() => {
+                        navigate(userProfile.userType === 'citizen' ? '/ecolearn/citizen' : '/ecolearn/driver');
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      <Award className="mr-3 h-4 w-4" />
+                      EcoLearn
+                    </Button>
+
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <User className="mr-3 h-4 w-4" />
+                      Profile
+                    </Button>
+
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <Settings className="mr-3 h-4 w-4" />
+                      Settings
+                    </Button>
+
+                    {/* Driver ID for drivers */}
+                    {userProfile.userType === 'driver' && userProfile.driverId && (
+                      <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <p className="text-xs text-blue-600 font-medium">Driver ID</p>
+                        <p className="text-sm font-mono font-semibold text-blue-800">{userProfile.driverId}</p>
+                      </div>
+                    )}
+
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start text-red-600 hover:text-red-600 hover:bg-red-50"
+                      onClick={() => {
+                        handleLogout();
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      <LogOut className="mr-3 h-4 w-4" />
+                      Logout
+                    </Button>
+                  </div>
+                </div>
+              ) : (
+                /* Mobile Sign In */
+                <div className="space-y-4 bg-white p-3 rounded-lg border border-gray-200">
+                  <h3 className="text-sm font-medium text-gray-700">Account</h3>
+                  <NavbarSignIn />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

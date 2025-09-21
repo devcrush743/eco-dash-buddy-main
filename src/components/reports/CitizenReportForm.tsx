@@ -31,9 +31,10 @@ interface ReportFormData {
 interface CitizenReportFormProps {
   onSuccess?: () => void;
   className?: string;
+  onShowSteps?: () => void;
 }
 
-export const CitizenReportForm = ({ onSuccess, className }: CitizenReportFormProps) => {
+export const CitizenReportForm = ({ onSuccess, className, onShowSteps }: CitizenReportFormProps) => {
   const { currentUser, userProfile } = useAuth();
   const { toast } = useToast();
   
@@ -260,18 +261,32 @@ export const CitizenReportForm = ({ onSuccess, className }: CitizenReportFormPro
 
   return (
     <Card className={`p-6 space-y-6 shadow-depth hover:shadow-premium transition-all duration-300 ${className}`}>
-      <div className="flex items-center gap-3">
-        <div className="p-3 rounded-xl bg-gradient-hero text-primary-foreground shadow-glow">
-          <Camera className="h-6 w-6" />
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="p-3 rounded-xl bg-gradient-hero text-primary-foreground shadow-glow">
+            <Camera className="h-6 w-6" />
+          </div>
+          <div>
+            <h2 className="text-xl font-display font-bold text-foreground tracking-tight">
+              Report an Issue
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Help keep your community clean
+            </p>
+          </div>
         </div>
-        <div>
-          <h2 className="text-xl font-display font-bold text-foreground tracking-tight">
-            Report an Issue
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            Help keep your community clean
-          </p>
-        </div>
+        
+        {onShowSteps && (
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={onShowSteps}
+            className="text-xs px-3 py-2"
+          >
+            📋 Help
+          </Button>
+        )}
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">

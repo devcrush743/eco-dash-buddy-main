@@ -67,7 +67,25 @@ const translations = {
     
     // Language Toggle
     'language.english': 'English',
-    'language.hindi': 'हिंदी'
+    'language.hindi': 'हिंदी',
+    
+    // EcoLearn Translations
+    'wastesorting': 'Waste Sorting',
+    'wastesortingDesc': 'Learn proper waste sorting techniques',
+    'recycling': 'Recycling',
+    'recyclingDesc': 'Understand recycling processes and benefits',
+    'composting': 'Composting',
+    'compostingDesc': 'Master composting methods for organic waste',
+    'hazardouswaste': 'Hazardous Waste',
+    'hazardouswasteDesc': 'Handle hazardous materials safely',
+    'welcome': 'Welcome to EcoLearn',
+    'subtitle': 'Your environmental education platform',
+    'overallprogress': 'Overall Progress',
+    'complete': 'Complete',
+    'continue': 'Continue',
+    'start': 'Start',
+    'viewprogress': 'View Progress',
+    'certificate': 'Certificate'
   },
   hi: {
     // Hero Section
@@ -124,7 +142,25 @@ const translations = {
     
     // Language Toggle
     'language.english': 'English',
-    'language.hindi': 'हिंदी'
+    'language.hindi': 'हिंदी',
+    
+    // EcoLearn Translations
+    'wastesorting': 'कचरा छंटाई',
+    'wastesortingDesc': 'उचित कचरा छंटाई तकनीक सीखें',
+    'recycling': 'रीसाइक्लिंग',
+    'recyclingDesc': 'रीसाइक्लिंग प्रक्रियाओं और लाभों को समझें',
+    'composting': 'कम्पोस्टिंग',
+    'compostingDesc': 'कार्बनिक कचरे के लिए कम्पोस्टिंग विधियों में महारत हासिल करें',
+    'hazardouswaste': 'खतरनाक कचरा',
+    'hazardouswasteDesc': 'खतरनाक सामग्रियों को सुरक्षित रूप से संभालें',
+    'welcome': 'EcoLearn में आपका स्वागत है',
+    'subtitle': 'आपका पर्यावरणीय शिक्षा मंच',
+    'overallprogress': 'समग्र प्रगति',
+    'complete': 'पूर्ण',
+    'continue': 'जारी रखें',
+    'start': 'शुरू करें',
+    'viewprogress': 'प्रगति देखें',
+    'certificate': 'प्रमाणपत्र'
   }
 };
 

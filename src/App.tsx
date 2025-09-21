@@ -10,6 +10,8 @@ import LandingPage from "./pages/LandingPage";
 import CitizenDashboard from "./pages/CitizenDashboard";
 import DriverDashboard from "./pages/DriverDashboard";
 import AdminPortal from "./pages/AdminPortal";
+import CitizenPortalInfo from "./pages/CitizenPortalInfo";
+import DriverPortalInfo from "./pages/DriverPortalInfo";
 import MapInterface from "./components/MapInterface";
 import NotFound from "./pages/NotFound";
 import { EcoLearnApp } from "./components/ecolearn/EcoLearnApp";
@@ -36,6 +38,8 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/citizen-info" element={<CitizenPortalInfo />} />
+      <Route path="/driver-info" element={<DriverPortalInfo />} />
       <Route 
         path="/citizen" 
         element={

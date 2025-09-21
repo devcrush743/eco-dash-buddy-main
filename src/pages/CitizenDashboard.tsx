@@ -6,11 +6,14 @@ import { CitizenReportForm } from "@/components/reports/CitizenReportForm";
 import { CitizenRecentReports } from "@/components/reports/CitizenRecentReports";
 import { CitizenApprovalSystem } from "@/components/reports/CitizenApprovalSystem";
 import { ReportsMap } from "@/components/maps/ReportsMap";
+import { ReportingStepsCarousel } from "@/components/carousel/ReportingStepsCarousel";
 import { useAuth } from "@/contexts/AuthContext";
+import { useState } from "react";
 
 const CitizenDashboard = () => {
   const { toast } = useToast();
   const { currentUser } = useAuth();
+  const [showCarousel, setShowCarousel] = useState(false);
 
 
 
@@ -20,6 +23,28 @@ const CitizenDashboard = () => {
       <Navbar showBackToHome={true} />
 
       <div className="container mx-auto p-4 sm:p-6 space-y-6 sm:space-y-8">
+
+        {/* Reporting Steps Carousel */}
+        {showCarousel && (
+          <div className="animate-fade-in-up">
+            <ReportingStepsCarousel 
+              onStartReporting={() => setShowCarousel(false)}
+              className="mb-8"
+            />
+          </div>
+        )}
+
+        {/* Show Carousel Button */}
+        {!showCarousel && (
+          <div className="text-center mb-8">
+            <button
+              onClick={() => setShowCarousel(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-hero text-white font-semibold rounded-xl shadow-premium hover:shadow-glow transition-all duration-300"
+            >
+              📋 Learn How to Report Issues
+            </button>
+          </div>
+        )}
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
@@ -31,6 +56,7 @@ const CitizenDashboard = () => {
                 description: "Thank you for helping keep our community clean",
               });
             }}
+            onShowSteps={() => setShowCarousel(true)}
             className="animate-fade-in-up" 
             style={{ animationDelay: '0.3s' } as any}
           />

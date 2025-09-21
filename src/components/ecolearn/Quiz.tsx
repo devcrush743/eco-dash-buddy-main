@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle, XCircle, Award } from 'lucide-react';
-import { useLanguage } from '../../contexts/ecolearn/LanguageContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { useProgress } from '../../contexts/ecolearn/ProgressContext';
 
 interface QuizProps {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Users, Award, TrendingUp, MapPin, Calendar, AlertTriangle, CheckCircle, Star, Shield } from 'lucide-react';
 import { useGreenChampions } from '../../contexts/ecolearn/GreenChampionsContext';
-import { useLanguage } from '../../contexts/ecolearn/LanguageContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 interface GreenChampionsDashboardProps {
   onBack: () => void;

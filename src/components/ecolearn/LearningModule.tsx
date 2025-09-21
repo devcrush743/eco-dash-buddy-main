@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Play, CheckCircle, BookOpen, Film } from 'lucide-react';
-import { useLanguage } from '../../contexts/ecolearn/LanguageContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { useProgress } from '../../contexts/ecolearn/ProgressContext';
 import { Quiz } from './Quiz';
 

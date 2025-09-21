@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, BarChart3, TrendingUp, DollarSign, Leaf, Brain, Download, Filter, RefreshCw, Settings } from 'lucide-react';
 import { useAnalytics } from '../../contexts/ecolearn/AnalyticsContext';
-import { useLanguage } from '../../contexts/ecolearn/LanguageContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { useUser } from '../../contexts/ecolearn/UserContext';
 
 interface AnalyticsDashboardProps {
